@@ -19,6 +19,11 @@ idea/
 *.iws
 *.iml
 *.ipr
+workspace.xml
+vcs.xml
+modules.xml
+misc.xml
+jpa-buddy.xml
 
 ### NetBeans ###
 /nbproject/private/
