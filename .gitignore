@@ -32,3 +32,6 @@ build/
 
 ### VS Code ###
 .vscode/
+/out/production/jHW/Main.class
+/out/production/jHW/WrongLoginException.class
+/out/production/jHW/WrongPasswordException.class
