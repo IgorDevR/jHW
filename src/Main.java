@@ -40,7 +40,8 @@ public class Main {
     static boolean staticMethod(String login, String password, String confirmPassword) {
 
         Pattern pattern = Pattern.compile(("[a-zA-Z0-9_']+"));
-        boolean result = pattern.matcher(login).matches() && pattern.matcher(password).matches();
+        boolean result = pattern.matcher(login).matches() && pattern.matcher(password).matches()
+                && pattern.matcher(password).matches();
 
         try {
             if (login.length() > 20) {
@@ -49,10 +50,10 @@ public class Main {
                 throw new WrongPasswordException();
             }
         } catch (WrongLoginException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getStackTrace());
             result = false;
         } catch (WrongPasswordException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getStackTrace());
             result = false;
         } finally {
             return result;
