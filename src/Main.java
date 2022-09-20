@@ -50,11 +50,13 @@ public class Main {
                 throw new WrongPasswordException();
             }
         } catch (WrongLoginException e) {
-            System.out.println(e.getStackTrace());
             result = false;
+            throw new WrongLoginException("Логин содержит больше 20 символов", e);
+
         } catch (WrongPasswordException e) {
-            System.out.println(e.getStackTrace());
             result = false;
+            throw new WrongPasswordException("Пароли не совпадают", e);
+
         } finally {
             return result;
         }
@@ -64,15 +66,19 @@ public class Main {
 }
 
 class WrongLoginException extends Exception {
-    @Override
-    public String toString() {
-        return "Логин содержит больше 20 символов";
+    public WrongLoginException(String errorMessage, Throwable err) {
+        super(errorMessage, err);
+    }
+
+    public WrongLoginException() {
     }
 }
 
 class WrongPasswordException extends Exception {
-    @Override
-    public String toString() {
-        return "Пароли не совпадают";
+
+    public WrongPasswordException(String errorMessage, Throwable err) {
+        super(errorMessage, err);
+    }
+    public WrongPasswordException() {
     }
 }
