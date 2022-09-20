@@ -41,7 +41,7 @@ public class Main {
 
         Pattern pattern = Pattern.compile(("[a-zA-Z0-9_']+"));
         boolean result = pattern.matcher(login).matches() && pattern.matcher(password).matches()
-                && pattern.matcher(password).matches();
+                && pattern.matcher(confirmPassword).matches();
 
         try {
             if (login.length() > 20) {
